@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="bg-white">
+    <header id="site-header" class="sticky top-0 z-50 bg-white transition-shadow duration-300">
+
+
+        <!-- Navbar -->
+        <nav class="flex items-center justify-between px-6 py-4 relative ">
+
+            <!-- Mobile: Hamburger (trái) -->
+            <button id="menu-btn" class="md:hidden text-2xl absolute left-4">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Logo (giữa trên mobile, trái trên desktop) -->
+            <div class="flex-1 flex justify-center md:justify-start">
+                <div class="flex items-center space-x-2">
+                    <img src="https://files.cdn-files-a.com/uploads/9435902/400_filter_nobg_668f80b00bfda.png"
+                        class="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12">
+                    <span class="font-semibold text-lg sm:text-xl md:text-2xl tracking-wide">
+                        Federico's Food
+                    </span>
+                </div>
+            </div>
+
+            <!-- Desktop / Tablet Menu -->
+            <div class="hidden md:flex items-center space-x-6 ml-auto">
+                <!-- Links -->
+                <ul class="flex space-x-6 font-medium">
+                    <!-- Tablet: 3 mục + More -->
+                    <li class="hidden md:block lg:block"><a href="#" class="hover:text-yellow-500">Home</a></li>
+                    <li class="hidden md:block lg:block"><a href="#" class="hover:text-yellow-500">About</a></li>
+                    <li class="hidden md:block lg:block"><a href="#" class="hover:text-yellow-500">Our Menu</a></li>
+
+                    <!-- Dropdown More (tablet) -->
+                    <li class="relative group hidden md:block lg:hidden">
+                        <button class="flex items-center hover:text-yellow-500">
+                            More <i class="fa-solid fa-caret-down ml-1"></i>
+                        </button>
+                        <ul
+                            class="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-lg w-40 text-black">
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Services</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Testimonials</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Contact</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Desktop full -->
+                    <li class="hidden lg:block"><a href="#" class="hover:text-yellow-500">Services</a></li>
+                    <li class="hidden lg:block"><a href="#" class="hover:text-yellow-500">Testimonials</a></li>
+                    <li class="hidden lg:block"><a href="#" class="hover:text-yellow-500">Contact</a></li>
+                </ul>
+
+                <!-- Icons -->
+                <div class="flex space-x-4 text-lg">
+                    <i class="fa-solid fa-globe hover:text-yellow-500"></i>
+                    <i class="fa-solid fa-envelope hover:text-yellow-500"></i>
+                    <i class="fa-solid fa-phone hover:text-yellow-500"></i>
+                </div>
+
+                <!-- Button -->
+                <button
+                    class="bg-black text-white px-4 py-2 rounded-full hover:bg-yellow-500 hover:text-black transition">
+                    MAKE A RESERVATION
+                </button>
+            </div>
+        </nav>
+    </header>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-black bg-opacity-95 text-white hidden flex-col items-center justify-center space-y-6 z-50 text-center">
+
+        <!-- Close button -->
+        <button id="close-btn" class="absolute top-5 left-5 text-3xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Menu links (centered) -->
+        <div class="flex flex-col space-y-4 text-lg">
+            <a href="#" class="hover:text-yellow-500">Home</a>
+            <a href="#" class="hover:text-yellow-500">About</a>
+            <a href="#" class="hover:text-yellow-500">Our Menu</a>
+            <a href="#" class="hover:text-yellow-500">Services</a>
+            <a href="#" class="hover:text-yellow-500">Testimonials</a>
+            <a href="#" class="hover:text-yellow-500">Contact</a>
+        </div>
+
+        <!-- Icons -->
+        <div class="flex space-x-6 pt-6 border-t border-yellow-500">
+            <i class="fa-solid fa-globe text-xl hover:text-yellow-500"></i>
+            <i class="fa-solid fa-envelope text-xl hover:text-yellow-500"></i>
+            <i class="fa-solid fa-phone text-xl hover:text-yellow-500"></i>
+        </div>
+
+        <!-- Button -->
+        <button class="bg-black px-6 py-2 rounded-full hover:bg-yellow-500 mt-4">
+            MAKE A RESERVATION
+        </button>
+    </div>
+    <!-- Main Content -->
+    <div class="px-6 py-16">
+        <div class="flex flex-col md:flex-row w-full items-center justify-between">
+            <!-- SECTION A: text + buttons -->
+            <section
+                class="flex-2 px-12 py-12 flex flex-col justify-center items-center md:items-start relative-top-10 w-full md:w-1/2">
+                <h1
+                    class="text-4xl sm:text-5xl md:text-5xl lg:text-7xl font-semibold leading-tight text-center md:text-left ">
+                    <span class="block">Welcome</span>
+                    <span class="block">To</span>
+                    <span class="block text-yellow-500">Federico's Food</span>
+                </h1>
+
+                <p class="mt-4 text-base sm:text-lg md:text-xl text-gray-800 text-center md:text-left">
+                    Experience Authentic Italian Cuisine
+                </p>
+
+                <!-- Buttons -->
+                <div class="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="#viewmenu"
+                        class="bg-yellow-500 text-black font-semibold py-3 px-6 rounded-lg w-full sm:w-auto text-center">
+                        VIEW MENU
+                    </a>
+                    <a href="#reservation"
+                        class="bg-black text-white font-semibold py-3 px-6 rounded-lg w-full sm:w-auto text-center">
+                        RESERVE A TABLE
+                    </a>
+                </div>
+            </section>
+
+            <!-- SECTION B: video -->
+            <section class="w-full md:w-1/2 flex justify-center items-center mt-8 md:mt-0">
+                <video autoplay muted loop playsinline class="w-full h-auto object-cover aspect-video"
+                    style="width:100vw; max-width:100%;">
+                    <source src="https://cdn-media.f-static.net/uploads/9435902/normal_668f7d7e6d783.mp4"
+                        type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+        </div>
+    </div>
+    <section class="w-full max-w-5xl mx-auto flex flex-col items-center py-10">
+
+        <!-- Title -->
+        <h1 class="text-4xl font-bold mb-2 text-center">Our Menu</h1>
+        <div class="flex space-x-2 mb-6">
+            <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex space-x-4 mb-8">
+            <button onclick="showTab('main')" id="tab-main"
+                class="tab-btn bg-yellow-400 text-black font-semibold px-4 py-1 rounded border border-yellow-400">
+                Main Menu
+            </button>
+            <button onclick="showTab('sides')" id="tab-sides"
+                class="tab-btn px-4 py-1 rounded border border-yellow-400 text-yellow-500">
+                Sides
+            </button>
+            <button onclick="showTab('drinks')" id="tab-drinks"
+                class="tab-btn px-4 py-1 rounded border border-yellow-400 text-yellow-500">
+                Drinks
+            </button>
+            <button onclick="showTab('desserts')" id="tab-desserts"
+                class="tab-btn px-4 py-1 rounded border border-yellow-400 text-yellow-500">
+                Desserts
+            </button>
+        </div>
+
+        <!-- Menu Content -->
+        <div class="w-full max-w-3xl">
+
+            <!-- Main Menu -->
+            <div id="main" class="menu-section">
+                <h2 class="text-xl font-semibold mb-4">Main Menu</h2>
+
+                <!-- Item -->
+                <div class="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://files.cdn-files-a.com/uploads/9435902/800_gi-668f8493c6f56_filter_6690d93c138df.jpg"
+                            class="w-28 h-24 object-cover rounded">
+                        <div>
+                            <h3 class="font-bold text-lg">Pizza Margherita</h3>
+                            <p class="text-gray-600 text-sm">
+                                Classic Neapolitan pizza topped with fresh mozzarella, basil, and San Marzano tomatoes.
+                            </p>
+                        </div>
+                    </div>
+                    <span class="font-semibold text-lg">$13.50</span>
+                </div>
+
+                <!-- Item -->
+                <div class="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://files.cdn-files-a.com/uploads/9435902/800_gi-668f84deac64f_filter_6690d9468ee51.jpg"
+                            class="w-28 h-24 object-cover rounded">
+                        <div>
+                            <h3 class="font-bold text-lg">Pizza Quattro Formaggi</h3>
+                            <p class="text-gray-600 text-sm">
+                                A rich blend of mozzarella, Gorgonzola, Parmesan, and Fontina cheeses.
+                            </p>
+                        </div>
+                    </div>
+                    <span class="font-semibold text-lg">$14.95</span>
+                </div>
+            </div>
+            <!-- Item  -->
+            <div class="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
+                <div class="flex items-center space-x-4">
+                    <img src="https://files.cdn-files-a.com/uploads/9435902/800_gi-668f85003d67d_filter_6690d9510008f.jpg"
+                        class="w-28 h-24 object-cover rounded">
+                    <div>
+                        <h3 class="font-bold text-lg">Pizza Prosciutto</h3>
+                        <p class="text-gray-600 text-sm">
+                            Thin-crust pizza topped with prosciutto, fresh arugula, and shaved Parmesan.
+                        </p>
+                    </div>
+                </div>
+                <span class="font-semibold text-lg">$15.95</span>
+            </div>
+            <!-- Item  -->
+            <div class="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
+                <div class="flex items-center space-x-4">
+                    <img src="https://files.cdn-files-a.com/uploads/9435902/800_gi-668f852507860_filter_6690d95be0cff.jpg"
+                        class="w-28 h-24 object-cover rounded">
+                    <div>
+                        <h3 class="font-bold text-lg">Spaghetti Carbonara</h3>
+                        <p class="text-gray-600 text-sm">
+                            Traditional Roman pasta dish with creamy egg sauce, pancetta, and Pecorino Romano cheeses,
+                            and black pepper.
+                        </p>
+                    </div>
+                </div>
+                <span class="font-semibold text-lg">$14.95</span>
+            </div>
+            <!-- Item  -->
+            <div class="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
+                <div class="flex items-center space-x-4">
+                    <img src="https://files.cdn-files-a.com/uploads/9435902/800_gi-668f853eef582_filter_6690d9663130c.jpg"
+                        class="w-28 h-24 object-cover rounded">
+                    <div>
+                        <h3 class="font-bold text-lg">Penne Arrabbiata</h3>
+                        <p class="text-gray-600 text-sm">
+                            Spicy tomato sauce with garlic, chilli peppers, and fresh parsley.
+                        </p>
+                    </div>
+                </div>
+                <span class="font-semibold text-lg">$13.95</span>
+            </div>
+            <!-- Item  -->
+            <div class="">
+                <!-- Sides -->
+                <div id="sides" class="menu-section hidden">
+                    <h2 class="text-xl font-semibold mb-4">Sides</h2>
+                    <div class="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c4?w=200"
+                                class="w-28 h-24 object-cover rounded">
+                            <div>
+                                <h3 class="font-bold text-lg">Garlic Bread</h3>
+                                <p class="text-gray-600 text-sm">Toasted bread with garlic butter and parsley.</p>
+                            </div>
+                        </div>
+                        <span class="font-semibold text-lg">$4.95</span>
+                    </div>
+                </div>
+
+                <!-- Drinks -->
+                <div id="drinks" class="menu-section hidden">
+                    <h2 class="text-xl font-semibold mb-4">Drinks</h2>
+                    <div class="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://images.unsplash.com/photo-1606788075761-99c26be3f0e8?w=200"
+                                class="w-28 h-24 object-cover rounded">
+                            <div>
+                                <h3 class="font-bold text-lg">Coca Cola</h3>
+                                <p class="text-gray-600 text-sm">Refreshing chilled soft drink.</p>
+                            </div>
+                        </div>
+                        <span class="font-semibold text-lg">$2.50</span>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div id="desserts" class="menu-section hidden">
+                    <h2 class="text-xl font-semibold mb-4">Desserts</h2>
+                    <div class="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?w=200"
+                                class="w-28 h-24 object-cover rounded">
+                            <div>
+                                <h3 class="font-bold text-lg">Tiramisu</h3>
+                                <p class="text-gray-600 text-sm">Italian classic dessert with mascarpone and coffee.</p>
+                            </div>
+                        </div>
+                        <span class="font-semibold text-lg">$6.95</span>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+    <!-- Nút tròn chữ ngang -->
+    <div class="relative p-4 bottom-[200vh]">
+        <a href="./admin/adminwedfood.html" class="fixed bottom-6 left-full transform -translate-x-full
+            w-40 h-14 flex items-center justify-center rounded-full 
+            bg-yellow-500 text-white font-bold text-base 
+            shadow-lg hover:scale-110 hover:shadow-xl transition 
+            whitespace-nowrap">
+            User Public
+        </a>
+    </div>
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4 text-center text-xs min-h-60">
+        <a href="#" class="inline-block mx-4 hover:text-yellow-400">HOME</a>
+        <a href="#" class="inline-block mx-4 hover:text-yellow-400">ABOUT</a>
+        <a href="#" class="inline-block mx-4 hover:text-yellow-400">OUR MENU</a>
+        <a href="#" class="inline-block mx-4 hover:text-yellow-400">SERVICES</a>
+        <a href="#" class="inline-block mx-4 hover:text-yellow-400">MAKE A RESERVATION</a>
+        <a href="#" class="inline-block mx-4 hover:text-yellow-400">CONTACT</a>
+        <div class="mt-2 text-white">
+            <h1 class="text-2xl">Federico's Food</h1>
+            Copyright © 2025 All rights reserved
+        </div>
+    </footer>
+
+
+
+    <script>
+        function showTab(tabId) {
+            // Ẩn tất cả các section
+            document.querySelectorAll(".menu-section").forEach(sec => sec.classList.add("hidden"));
+            // Hiện section được chọn
+            document.getElementById(tabId).classList.remove("hidden");
+
+        }
+    </script>
+
+    <!-- Script -->
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const closeBtn = document.getElementById("close-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("hidden");
+            mobileMenu.classList.add("flex");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+            mobileMenu.classList.remove("flex");
+        });
+    </script>
+    <script>
+        const header = document.getElementById("site-header");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 0) {
+                header.classList.add("shadow-md"); // hiện shadow khi scroll
+            } else {
+                header.classList.remove("shadow-md"); // bỏ shadow khi ở top
+            }
+        });
+    </script>
+
+</body>
+
+</html>

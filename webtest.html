@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Menu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center py-10">
+
+  <!-- Title -->
+  <h1 class="text-4xl font-bold mb-2">Our Menu</h1>
+  <div class="flex space-x-2 mb-6">
+    <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+    <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+    <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+  </div>
+
+  <!-- Tabs -->
+  <div class="flex space-x-4 mb-8">
+    <button onclick="showTab('main')" id="tab-main"
+      class="tab-btn bg-yellow-400 text-black font-semibold px-4 py-1 rounded border border-yellow-400">
+      Main Menu
+    </button>
+    <button onclick="showTab('sides')" id="tab-sides"
+      class="tab-btn px-4 py-1 rounded border border-yellow-400 text-yellow-500">
+      Sides
+    </button>
+    <button onclick="showTab('drinks')" id="tab-drinks"
+      class="tab-btn px-4 py-1 rounded border border-yellow-400 text-yellow-500">
+      Drinks
+    </button>
+    <button onclick="showTab('desserts')" id="tab-desserts"
+      class="tab-btn px-4 py-1 rounded border border-yellow-400 text-yellow-500">
+      Desserts
+    </button>
+  </div>
+
+  <!-- Menu Content -->
+  <div class="w-full max-w-3xl">
+
+    <!-- Main Menu -->
+    <div id="main" class="menu-section">
+      <h2 class="text-xl font-semibold mb-4">Main Menu</h2>
+
+      <div class="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
+        <div class="flex items-center space-x-4">
+          <img src="https://images.unsplash.com/photo-1601924582971-df3b96f2c1c2?w=200"
+               class="w-28 h-24 object-cover rounded">
+          <div>
+            <h3 class="font-bold text-lg">Pizza Margherita</h3>
+            <p class="text-gray-600 text-sm">
+              Classic Neapolitan pizza topped with fresh mozzarella, basil, and San Marzano tomatoes.
+            </p>
+          </div>
+        </div>
+        <span class="font-semibold text-lg">$13.50</span>
+      </div>
+
+      <div class="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
+        <div class="flex items-center space-x-4">
+          <img src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?w=200"
+               class="w-28 h-24 object-cover rounded">
+          <div>
+            <h3 class="font-bold text-lg">Pizza Quattro Formaggi</h3>
+            <p class="text-gray-600 text-sm">
+              A rich blend of mozzarella, Gorgonzola, Parmesan, and Fontina cheeses.
+            </p>
+          </div>
+        </div>
+        <span class="font-semibold text-lg">$14.95</span>
+      </div>
+    </div>
+
+    <!-- Sides -->
+    <div id="sides" class="menu-section hidden">
+      <h2 class="text-xl font-semibold mb-4">Sides</h2>
+
+      <div class="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
+        <div class="flex items-center space-x-4">
+          <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c4?w=200"
+               class="w-28 h-24 object-cover rounded">
+          <div>
+            <h3 class="font-bold text-lg">Garlic Bread</h3>
+            <p class="text-gray-600 text-sm">Toasted bread with garlic butter and parsley.</p>
+          </div>
+        </div>
+        <span class="font-semibold text-lg">$4.95</span>
+      </div>
+    </div>
+
+    <!-- Drinks -->
+    <div id="drinks" class="menu-section hidden">
+      <h2 class="text-xl font-semibold mb-4">Drinks</h2>
+
+      <div class="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
+        <div class="flex items-center space-x-4">
+          <img src="https://images.unsplash.com/photo-1606788075761-99c26be3f0e8?w=200"
+               class="w-28 h-24 object-cover rounded">
+          <div>
+            <h3 class="font-bold text-lg">Coca Cola</h3>
+            <p class="text-gray-600 text-sm">Refreshing chilled soft drink.</p>
+          </div>
+        </div>
+        <span class="font-semibold text-lg">$2.50</span>
+      </div>
+    </div>
+
+    <!-- Desserts -->
+    <div id="desserts" class="menu-section hidden">
+      <h2 class="text-xl font-semibold mb-4">Desserts</h2>
+
+      <div class="flex items-center justify-between bg-white rounded-lg shadow-md p-4 mb-4">
+        <div class="flex items-center space-x-4">
+          <img src="https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?w=200"
+               class="w-28 h-24 object-cover rounded">
+          <div>
+            <h3 class="font-bold text-lg">Tiramisu</h3>
+            <p class="text-gray-600 text-sm">Italian classic dessert with mascarpone and coffee.</p>
+          </div>
+        </div>
+        <span class="font-semibold text-lg">$6.95</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function showTab(tabId) {
+      // Ẩn tất cả menu
+      document.querySelectorAll('.menu-section').forEach(sec => sec.classList.add('hidden'));
+
+      // Hiện menu được chọn
+      document.getElementById(tabId).classList.remove('hidden');
+
+      // Reset style tab
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-yellow-400','text-black','font-semibold');
+        btn.classList.add('text-yellow-500');
+      });
+
+      // Active tab hiện tại
+      const activeTab = document.getElementById('tab-' + tabId);
+      activeTab.classList.add('bg-yellow-400','text-black','font-semibold');
+      activeTab.classList.remove('text-yellow-500');
+    }
+  </script>
+</body>
+</html>

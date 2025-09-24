@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gray-100">
+
+  <div class="flex w-full max-w-4xl bg-white rounded-2xl shadow-md overflow-hidden">
+    <!-- Column form -->
+    <div class="w-full max-w-md p-10">
+      <h1 class="text-black mb-4 font-bold text-3xl">Sign in</h1>
+      <p class="text-gray-500 mb-6">Sign in to your account and explore a world of possibilities. Your journey begins here.</p>
+
+      <!-- <-- lưu ý: thêm id="loginForm" và bỏ onsubmit --> -->
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">User name</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter your Username"
+            class="mt-1 w-full px-4 py-2 border rounded-lg bg-blue-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            required>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your Password"
+            class="mt-1 w-full px-4 py-2 border rounded-lg bg-blue-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            required>
+        </div>
+
+        <div class="flex items-center justify-between text-sm">
+          <label class="flex items-center space-x-2">
+            <input type="checkbox" id="rememberMe" class="w-4 h-4"> 
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="text-blue-600 hover:underline">Forgot your password?</a>
+        </div>
+
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg">
+          Sign in
+        </button>
+      </form>
+
+      <!-- chỉ 1 errorMsg duy nhất -->
+      <p id="errorMsg" class="text-red-500 text-sm mt-4 text-center hidden"></p>
+
+      <p class="mt-6 text-center text-sm text-gray-500">
+        Don’t have account?
+        <a href="register.html" class="text-blue-600 hover:underline">Register here</a>
+      </p>
+    </div>
+
+    <!-- Column image (ẩn trên mobile) -->
+    <div class="hidden md:flex w-1/2 items-center justify-center bg-gray-50 p-6">
+      <img src="anhlogin.jpg" alt="login illustration" class="w-10/12 object-contain">
+    </div>
+  </div>
+
+<script>
+  // Lấy phần tử (sau khi DOM đã có vì script nằm cuối body)
+  const form = document.getElementById("loginForm");
+  const username = document.getElementById("username");
+  const password = document.getElementById("password");
+  const errorMsg = document.getElementById("errorMsg");
+  const rememberMe = document.getElementById("rememberMe");
+
+  // Khi load: nếu remember=true thì auto fill
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem("remember") === "true") {
+      username.value = localStorage.getItem("username") || "";
+      password.value = localStorage.getItem("password") || "";
+      rememberMe.checked = true;
+    } else {
+      // giữ đăng ký (saved account) trong localStorage, nhưng không auto-fill
+      rememberMe.checked = false;
+      username.value = ""; 
+      password.value = "";
+    }
+  });
+
+  // Một listener duy nhất cho submit
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    // ẩn thông báo cũ
+    errorMsg.classList.add("hidden");
+    errorMsg.textContent = "";
+
+    const savedUsername = localStorage.getItem("username"); // giá trị do register.html lưu
+    const savedPassword = localStorage.getItem("password");
+
+    // nếu chưa có account đã đăng ký
+    if (!savedUsername || !savedPassword) {
+      errorMsg.textContent = "Tài khoản không tồn tại hoặc chưa đăng ký!";
+      errorMsg.classList.remove("hidden");
+      return;
+    }
+
+    // kiểm tra đúng/sai
+    if (username.value === savedUsername && password.value === savedPassword) {
+      // xử lý remember: nếu muốn lưu để auto-fill lần sau
+      if (rememberMe.checked) {
+        localStorage.setItem("remember", "true");
+        // Lưu username/password để auto-fill (lưu lại cùng key registered)
+        localStorage.setItem("username", username.value);
+        localStorage.setItem("password", password.value);
+      } else {
+        localStorage.setItem("remember", "false");
+        // không xóa thông tin account đã đăng ký (để user vẫn có account)
+      }
+      // redirect khi login thành công
+      window.location.href = "pagetest.html";
+    } else {
+      errorMsg.textContent = "Sai username hoặc password!";
+      errorMsg.classList.remove("hidden");
+    }
+  });
+</script>
+
+</body>
+</html>

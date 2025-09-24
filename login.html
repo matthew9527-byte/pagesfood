@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen flex w-12/6 items-center justify-center ">
+  <form onsubmit="handleLogin(event)">
+    <div class="flex w-full max-w-4xl rounded-2xl   overflow-hidden bg-white flexgap- ">
+
+      <div class="w-full max-w-md mx-auto p-10 border border-gray-300 shadow-md rounded-lg bg-white">
+        <h1 class="text-black mb-6 font-bold text-3xl">Sign in</h1>
+        <p class="text-gray-500 mb-6">Sign in to your account and explore a world of possibilities. Your journey begins
+          here.</p>
+
+        <form id="loginForm" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 ">User name</label>
+            <input type="text" id="username" placeholder="Enter your Username"
+              class="mt-1 w-full px-4 py-2 border rounded-lg bg-blue-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              required>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Password</label>
+            <input type="password" id="password" placeholder="Enter your Password"
+              class="mt-1 w-full px-4 py-2 border rounded-lg bg-blue-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              required>
+          </div>
+
+          <div class="flex items-center justify-between text-sm">
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" id="rememberMe" class="w-4 h-4">
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="text-blue-600 hover:underline">Forgot your password?</a>
+          </div>
+
+          <button type="submit" onclick="handle"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg">
+            Sign in
+          </button>
+        </form>
+
+
+        <p id="errorMsg" class="text-red-500 text-sm mt-4 text-center hidden"></p>
+
+        <p class="mt-6 text-center text-sm text-gray-500">
+          Don’t have account?
+          <a href="register.html" class="text-blue-600 hover:underline">Register here</a>
+        </p>
+      </div>
+    </div>
+  </form>
+
+  <div class="hidden md:flex  items-center justify-center  p-9">
+    <img src="anhlogin.jpg" alt="login illustration" class="max-w-3xl object-contain">
+  </div>
+
+  <script>
+
+    const form = document.getElementById("loginForm");
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
+    const errorMsg = document.getElementById("errorMsg");
+    const rememberMe = document.getElementById("rememberMe");
+
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem("remember") === "true") {
+        username.value = localStorage.getItem("username") || "";
+        password.value = localStorage.getItem("password") || "";
+        rememberMe.checked = true;
+      } else {
+
+        rememberMe.checked = false;
+        username.value = "";
+        password.value = "";
+      }
+    });
+  </script>
+
+  <script>
+    // Hàm gọi API để lấy User từ server //
+    async function fetchUsers() {
+      try {
+        const reponse = await fetch("https://jsonplaceholder.typicode.com/users");
+        if (!reponse.ok) throw new Error("Lỗi khi lấy dữ liệu");
+        return await reponse.json();
+      } catch (error) {
+        console.error(error);
+        alert("Không thể kết nối server!");
+        return [];
+      }
+    }
+
+    // Hàm xử lý login //
+    async function handleLogin(event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      const users = await fetchUsers();
+
+      // kiểm tra user có tồn tại hay không //
+      const foundUser = users.find(u => u.username.toLowerCase() === username.toLowerCase());
+
+      if (foundUser && password === "123456") {
+        alert(`✅ Login thành công rồi bạn ơi ! Xin chào ${foundUser.username}`);
+        window.location.href = "pagewedfood.html";
+      } else {
+        alert("❌ Ooops Chỉ User admin mới login được thôi bạn ơi");
+      }
+    }
+  </script>
+
+</body>
+
+</html>

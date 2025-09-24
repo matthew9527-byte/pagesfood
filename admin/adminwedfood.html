@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pages admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="p-6 bg-white rounded-xl shadow">
+        <h2 class="text-lg font-bold mb-4">Admin Username</h2>
+
+        <!-- Search + Filter  -->
+        <div class="flex justify-end items-center mb-4 space-x-2">
+            <input type="text" placeholder="Search..."
+                class="border rounded-lg px-3 py-2 focus:outline-none focus:ring w-64">
+            <button class="flex justify-end items-center px-3 py-2 border rounded-lg ">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2H3V4zM3 9h18M3 14h18M3 19h18" />
+                </svg>
+                Filter
+            </button>
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+            <table class="w-full boder-collapse">
+                <thead>
+                    <tr class="bg-gray-50 text-gray-600 text-sm">
+                        <th class="p-3 text-left"><input type="checkbox" id="checkAll" /></th>
+                        <th class="p-3 text-left">ID</th>
+                        <th class="p-3 text-left">Name</th>
+                        <th class="p-3 text-left">Username/Email</th>
+                        <th class="p-3 text-left">Phone</th>
+                        <th class="p-3 text-left">Street</th>
+                        <th class="p-3 text-left">City</th>
+                        <th class="p-3 text-left">Zipcode</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm divide-y" id="checkAll">
+                    <tr>
+                        <td class="p-3"><input type="checkbox" class="row-check" /></td>
+                        <td class="p-3">1</td>
+                        <td class="p-3">Leanne Graham</td>
+                        <td class="p-3 flex items-center space-x-2">
+                            <span
+                                class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold">LG</span>
+                            <div>
+                                <p>Bret</p>
+                                <p class="text-xs text-gray-400">Sincere@april.biz</p>
+                            </div>
+                        </td>
+                        <td class="p-3">1-770-736-8031 x56442</td>
+                        <td class="p-3">Kulas Light</td>
+                        <td class="p-3">Gwenborough</td>
+                        <td class="p-3">92998-3874</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3"><input type="checkbox" class="row-check"/></td>
+                        <td class="p-3">2</td>
+                        <td class="p-3">Ervin Howell</td>
+                        <td class="p-3 flex items-center space-x-2">
+                            <span
+                                class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold">EH</span>
+                            <div>
+                                <p>Antonette</p>
+                                <p class="text-xs text-gray-400">Shanna@melissa.tv</p>
+                            </div>
+                        </td>
+                        <td class="p-3">010-692-6593 x09125</td>
+                        <td class="p-3">Victor Plains</td>
+                        <td class="p-3">Wisokyburgh</td>
+                        <td class="p-3">90566-7771</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3"><input type="checkbox" class="row-check" /></td>
+                        <td class="p-3">3</td>
+                        <td class="p-3">Clementine Bauch</td>
+                        <td class="p-3 flex items-center space-x-2">
+                            <span
+                                class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold">CB</span>
+                            <div>
+                                <p>Samantha</p>
+                                <p class="text-xs text-gray-400">Nathan@yesenia.net</p>
+                            </div>
+                        </td>
+                        <td class="p-3">1-463-123-4447</td>
+                        <td class="p-3">Douglas Extension</td>
+                        <td class="p-3">McKenziehaven</td>
+                        <td class="p-3">59590-4157</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3"><input type="checkbox" class="row-check" /></td>
+                        <td class="p-3">4</td>
+                        <td class="p-3">Patricia Lebsack</td>
+                        <td class="p-3 flex items-center space-x-2">
+                            <span
+                                class="w-8  h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold">PL</span>
+                            <div>
+                                <p>Karianne</p>
+                                <p class="text-ts text-gray-400">Julianne.OConner@kory.org</p>
+                            </div>
+                        </td>
+                        <td class="p-3">493-170-9623 x156</td>
+                        <td class="p-3">Hoeger Mall</td>
+                        <td class="p-3">South Elvi</td>
+                        <td class="p-3">53919-4257</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3"><input type="checkbox" class="row-check" /></td>
+                        <td class="p-3">5</td>
+                        <td class="p-3">Chelsey Dietrich</td>
+                        <td class="p-3 flex items-center space-x-2">
+                            <span
+                                class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold">CD</span>
+                            <div>
+                                <p>Kamren</p>
+                                <p class="text-xs text-gray-400">Lucio_Hettinger@annie.ca</p>
+                            </div>
+                        </td>
+                        <td class="p-3">(254)954-1289</td>
+                        <td class="p-3">Skiles Walks</td>
+                        <td class="p-3">Roscoeview</td>
+                        <td class="p-3">33263</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3"><input type="checkbox" class="row-check" /></td>
+                        <td class="p-3">6</td>
+                        <td class="p-3">Mrs. Dennis Schulist</td>
+                        <td class="p-3 flex items-center space-x-2">
+                            <span
+                                class="w-8  h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold">DS</span>
+                            <div>
+                                <p>Leopoldo_Corkery</p>
+                                <p class="text-ts text-gray-400">Karley_Dach@jasper.info</p>
+                            </div>
+                        </td>
+                        <td class="p-3">1-477-935-8478 x6430</td>
+                        <td class="p-3">Norberto Crossing</td>
+                        <td class="p-3">South Christy</td>
+                        <td class="p-3">23505-1337</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3"><input type="checkbox"  class="row-check"/></td>
+                        <td class="p-3">7</td>
+                        <td class="p-3">Kurtis Weissnat</td>
+                        <td class="p-3 flex items-center space-x-2">
+                            <span
+                                class="w-8  h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold">KW</span>
+                            <div>
+                                <p>Elwyn.Skiles</p>
+                                <p class="text-ts text-gray-400">Telly.Hoeger@billy.biz</p>
+                            </div>
+                        </td>
+                        <td class="p-3">210.067.6132</td>
+                        <td class="p-3">Rex Trail</td>
+                        <td class="p-3">Howemouth</td>
+                        <td class="p-3">58804-1099</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3"><input type="checkbox"  class="row-check"/></td>
+                        <td class="p-3">8</td>
+                        <td class="p-3">Nicholas Runolfsdottir V</td>
+                        <td class="p-3 flex items-center space-x-2">
+                            <span
+                                class="w-8  h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold">NRV</span>
+                            <div>
+                                <p>Maxime_Nienow</p>
+                                <p class="text-ts text-gray-400">Sherwood@rosamond.me</p>
+                            </div>
+                        </td>
+                        <td class="p-3">586.493.6943 x140</td>
+                        <td class="p-3">Ellsworth Summi</td>
+                        <td class="p-3">Aliyaview</td>
+                        <td class="p-3">4516</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3"><input type="checkbox" class="row-check" /></td>
+                        <td class="p-3">9</td>
+                        <td class="p-3">Glenna Reichert</td>
+                        <td class="p-3 flex items-center space-x-2">
+                            <span
+                                class="w-8  h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold">GR</span>
+                            <div>
+                                <p>Delphine</p>
+                                <p class="text-ts text-gray-400">Chaim_McDermott@dana.io</p>
+                            </div>
+                        </td>
+                        <td class="p-3">(775)976-6794 x41206</td>
+                        <td class="p-3">Dayna Park</td>
+                        <td class="p-3">Bartholomebury</td>
+                        <td class="p-3">76495-3109</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3"><input type="checkbox" class="row-check" /></td>
+                        <td class="p-3">10</td>
+                        <td class="p-3">Clementina DuBuque</td>
+                        <td class="p-3 flex items-center space-x-2">
+                            <span
+                                class="w-8  h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold">CD</span>
+                            <div>
+                                <p>Moriah.Stanton</p>
+                                <p class="text-ts text-gray-400">Rey.Padberg@karina.biz</p>
+                            </div>
+                        </td>
+                        <td class="p-3">024-648-3804</td>
+                        <td class="p-3">Kattie Turnpike</td>
+                        <td class="p-3">Suite 198</td>
+                        <td class="p-3">31428-2261</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script>
+            const checkAll = document.getElementById('checkAll');
+            const rowChecks = document.querySelectorAll('.row-check');
+
+            // Khi tick vào "checkAll"
+            checkAll.addEventListener('change', function () {
+                rowChecks.forEach(cb => cb.checked = checkAll.checked);
+            });
+
+            // Khi tick/bỏ tick từng dòng
+            rowChecks.forEach(cb => {
+                cb.addEventListener('change', function () {
+                    // Nếu bỏ tick bất kỳ thì "checkAll" = false
+                    if (!cb.checked) {
+                        checkAll.checked = false;
+                    } else if ([...rowChecks].every(item => item.checked)) {
+                        // Nếu tất cả đều tick thì "checkAll" = true
+                        checkAll.checked = true;
+                    }
+                });
+            });
+        </script>
+
+
+
+</body>
+
+</html>
